@@ -1,0 +1,17 @@
+CREATE DATABASE parking_management;
+
+USE parking_management;
+
+CREATE TABLE vehicles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_number VARCHAR(20) NOT NULL,
+    owner_name VARCHAR(100) NOT NULL,
+    check_in_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('Parked', 'Checked Out') DEFAULT 'Parked'
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
